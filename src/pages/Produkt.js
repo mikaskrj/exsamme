@@ -124,6 +124,9 @@ const Produkt = (props) => {
                 <section className="produkt_info">
                     <div className="grid_bred_info">
                         {head_info}
+
+
+                        
                     </div>
                     <div className="grid_bred_mereinfo">
                     <h2>hrll</h2>
