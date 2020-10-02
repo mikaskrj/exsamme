@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300;1,800&display=swap');
+
+$color-nav: #6787a0;
+$color-nav2: #5c7a92;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none
+  }
+  
+  .center{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  
+  li{
+    list-style: none;
+    padding-top: 16px;
+  }
+  
+  link{
+    text-decoration: none;
+  }
+  
+  nav{
+    display: flex;
+    justify-content: space-around;
+    min-height: 90px;
+    align-items: center;
+    background-color: $color-nav ;
+    z-index: 100;
+  
+    .logo{
+      font-size: 40px;
+      font-weight: 400;
+      color: white;
+      font-family: 'Lobster', cursive;
+    }
+  
+    .nav-links{
+      display: flex;
+      justify-content: space-between;
+      min-width: 23%;
+      margin-left: auto;
+      margin-right: auto;
+      transform: translatex(0);
+  
+      .link{
+        font-size: 13px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.767);
+        margin: 10px;
+      }
+      
+    }
+  
+    .line{
+      color: white;
+      font-size: 35px;
+      display: none;
+    }
+    
+  
+  }
+  
+  @media all and (max-width: 768px)
+  {
+  
+    nav{
+      width: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: flex-end;
+      min-height: 60px;
+      align-items: center;
+      padding: 0px 20px 0px 100px;
+      background-color:$color-nav;
+    
+      .logo{
+        font-size: 23px;
+        font-weight: 700;
+        color: white;
+        display: none;
+      }
+    
+      .nav-links{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 50%;
+        background-color: $color-nav2;
+        padding-left: 10px;
+        padding-top: 25px;
+        border-bottom: 1px solid white;
+        transform: translatex(-400px);
+        transition: 0.5s;
+        
+    
+        li{
+          font-size: 17px;
+          font-weight: 400;
+          color: white;
+          padding: 20px;
+          max-width: 90%;
+          border-bottom: 1px solid white ;
+          
+        }
+        
+      }
+    
+      .line{
+        color: white;
+        font-size: 35px;
+        display: block;
+        cursor: pointer;
+        justify-self: end;
+      }
+      
+    
+    }
+  
+  }

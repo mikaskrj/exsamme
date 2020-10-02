@@ -1,0 +1,48 @@
+
+
+$color-lightblack: #333333;
+$color-textgrey: #898989c2;
+
+
+footer{
+    height: 180px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 2fr .2fr ;
+    grid-template-areas: 
+    "footmain"
+    "footersec"
+    ;
+    background-color: $color-lightblack ;
+
+    .footer_main{
+        grid-area: footmain;
+
+        h2{
+            font-size: 30px;
+            font-weight: 400;
+            color: white;
+            font-family: 'Lobster', cursive;
+            margin: 30px auto 0px auto;
+        }
+
+        p{
+            color: $color-textgrey;
+            max-width: 600px;
+            font-size: 14px;
+            margin: 10px auto 0px auto;
+        }
+
+    }
+
+    .footer_sec{
+        grid-area: footersec;
+        background-color: #222222;
+        
+        p{
+            padding: 10px;
+            color: $color-textgrey;
+            font-size: 10px;
+        }
+    }
+}
