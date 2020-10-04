@@ -133,19 +133,20 @@ $color-darktext: #313131;
 
 .produkt_titel{
 
-    height: 1200px;
+    min-height: 1100px;
     display: grid;
     margin: 0px 20% 0px 20%;
     background-color: $color-white;
     grid-gap: 15px;
     grid-template-columns: 1fr 1fr ;
-    grid-template-rows: .2fr .2fr 2fr  ;
+    grid-template-rows: 100px .2fr 2fr  ;
     grid-template-areas: 
     "one one"
     "produktittel produktittel"
     "produkt_info produkt_info";
 
     .produkt_top_info{
+        height:35px ;
         grid-area: one;
         margin-top: 70px;
         display: flex;
@@ -191,6 +192,8 @@ $color-darktext: #313131;
             
 
             button{
+                justify-content: center;
+                display: flex;
                 border-radius: 2px;
                 width: 180px;
                 margin-top: 9px;
@@ -203,6 +206,25 @@ $color-darktext: #313131;
                 background-color: rgba(255, 0, 0, 0);
                 font-family: 'Open Sans', sans-serif;
                 cursor: pointer;
+                transition: 1s;
+
+                p{
+                    
+                    padding-left: 8px;
+                    margin-top: 2px;
+                }
+
+            }
+
+            button:hover{
+             transition: 1s;
+             background-color:$color-button;
+             color: $color-white;
+             p{
+                
+                 color: red;
+             }
+
             }
             
         }
@@ -213,28 +235,35 @@ $color-darktext: #313131;
 
     .produkt_info{
         grid-area: produkt_info;
-        min-height: 400px;
+        min-height: 700px;
         display: grid;
         margin: 0px 0% 0px 0%;
         background-color: $color-white;
         grid-gap: 12px;
         grid-template-columns: 1fr 1fr .8fr ;
-        grid-template-rows: 1fr 1fr 1fr ;
+        grid-template-rows: 1fr  1fr ;
         grid-template-areas: 
         " grid_bred_info grid_bred_info ingredienser "
-        "grid_bred_mereinfo grid_bred_mereinfo ingredienser  "
-        " grid_bred_instrukser grid_bred_instrukser  ingredienser";
+        "grid_bred_info grid_bred_info  ingredienser";
 
         .grid_bred_info{
             grid-area:grid_bred_info ;
-            background-color: red;
+            
 
             div{
-                display: flex;
+                
                 img{
-                    max-width: 300px;
-                    max-height: 300px;
+                    float: left;
+                    width: 300px;
+                    height: 300px;
                     object-fit: cover;
+                    padding: 0px 15px 5px 0px;
+                }
+
+                p{
+                    color: $color-textgrey;
+                    text-align: start;
+                    margin-bottom: 30px;
                 }
             }
 
@@ -252,7 +281,31 @@ $color-darktext: #313131;
 
         .grid_bred_ingredienser{
             grid-area:ingredienser ;
-            background-color: slategray;
+            
+
+
+            .ingrediens{
+
+                li{
+                    padding: 15px 0px 0px 0px;
+                    min-height: 50px;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    color: $color-textgrey;
+                    background-color: white;
+                    border: 1px solid $color-textgrey;
+                }
+            }
+
+            p{
+                font-size: 20px;
+                margin-bottom: 20px;
+                text-align: start;
+                font-weight: 800;
+             
+            }
+
+
         }
 
     }
@@ -260,6 +313,172 @@ $color-darktext: #313131;
 
 }
 
+
+@media only screen and (max-width: 1200px) {
+
+
+    .produkt_titel{
+
+        min-height: 1200px;
+        display: grid;
+        margin: 0px 20% 0px 20%;
+        background-color: $color-white;
+        grid-gap: 15px;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 100px .1fr 1fr  ;
+        grid-template-areas: 
+        "one one"
+        "produktittel produktittel"
+        "produkt_info produkt_info";
+    
+        .produkt_top_info{
+            
+            grid-area: one;
+            margin-top: 70px;
+            display: flex;
+            font-size: 12px;
+            background-color: white;
+            padding: 10px;
+    
+            .light_text{
+                color: rgb(172, 172, 172);
+            }
+    
+        }
+    
+    
+        .produkt_head{
+            margin-top: 30px;
+            grid-area:produktittel;
+           
+            height: 70px;
+            display: grid;
+            grid-template-columns: 1fr  ;
+            grid-template-rows: 1fr;
+            grid-template-areas: 
+            "head_p button";
+    
+    
+            .produkt_top_head{
+                grid-area: head_p;
+                color: $color-textdarkblue;
+                text-align: start;
+                text-transform: uppercase;
+                font-size: 15px;
+    
+                p{
+                    color: $color-textgrey;
+                    font-weight: 900;
+                }
+                
+            }
+    
+            .button_container{
+                grid-area: button;
+                
+    
+                button{
+                    border-radius: 2px;
+                    width: 180px;
+                    margin-top: 9px;
+                    padding: 10px;
+                    float: right;
+                    font-weight: 600;
+                    font-size: 15px;
+                    letter-spacing: 0.1em;
+                    border: $color-textdarkblue solid 1px;
+                    background-color: rgba(255, 0, 0, 0);
+                    font-family: 'Open Sans', sans-serif;
+                    cursor: pointer;
+                }
+                
+            }
+    
+    
+        }
+    
+    
+        .produkt_info{
+            grid-area: produkt_info;
+            min-height: 200px;
+            display: grid;
+            margin: 0px 0% 0px 0%;
+            background-color: $color-white;
+            grid-gap: 12px;
+            grid-template-columns: 1fr 1fr  ;
+            grid-template-rows: .2fr  1fr  ;
+            grid-template-areas: 
+            " ingredienser ingredienser ingredienser "
+            "grid_bred_info grid_bred_info  grid_bred_info";
+    
+            .grid_bred_info{
+                grid-area:grid_bred_info ;
+                
+    
+                div{
+                    
+                    img{
+                        float: left;
+                        width: 300px;
+                        height: 300px;
+                        object-fit: cover;
+                        padding: 0px 15px 5px 0px;
+                    }
+    
+                    p{
+                        color: $color-textgrey;
+                        text-align: start;
+                    }
+                }
+    
+            }
+    
+            .grid_bred_mereinfo{
+                grid-area:grid_bred_mereinfo ;
+                background-color: orange;
+            }
+    
+            .grid_bred_instrukser{
+                grid-area:grid_bred_instrukser ;
+                background-color: orchid;
+            }
+    
+            .grid_bred_ingredienser{
+                grid-area:ingredienser ;
+                
+    
+    
+                .ingrediens{
+    
+                    li{
+                        padding: 15px 0px 0px 0px;
+                        min-height: 50px;
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                        color: $color-textgrey;
+                        background-color: white;
+                        border: 1px solid $color-textgrey;
+                    }
+                }
+    
+                p{
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    text-align: start;
+                    font-weight: 800;
+                 
+                }
+    
+    
+            }
+    
+        }
+    
+    
+    }
+
+
+}
 
 
 
@@ -386,8 +605,6 @@ $color-darktext: #313131;
 }
 
 
-
-
 .produkt_titel{
 
     min-height: 1200px;
@@ -396,12 +613,14 @@ $color-darktext: #313131;
     background-color: $color-white;
     grid-gap: 15px;
     grid-template-columns: 1fr 1fr ;
-    grid-template-rows: .2fr .2fr 1fr 1fr ;
+    grid-template-rows: 100px 150px 1fr  ;
     grid-template-areas: 
     "one one"
-    "produktittel produktittel";
+    "produktittel produktittel"
+    "produkt_info produkt_info";
 
     .produkt_top_info{
+        
         grid-area: one;
         margin-top: 70px;
         display: flex;
@@ -420,19 +639,19 @@ $color-darktext: #313131;
         margin-top: 30px;
         grid-area:produktittel;
        
-        height: 200px;
+        height: 70px;
         display: grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns:  1fr ;
+        grid-template-rows: 1fr ;
         grid-template-areas: 
-        "head_p head_p"
-        "button button";
+        "head_p "
+        "button";
 
 
         .produkt_top_head{
             grid-area: head_p;
             color: $color-textdarkblue;
-            text-align:  center;
+            text-align: start;
             text-transform: uppercase;
             font-size: 15px;
 
@@ -449,16 +668,17 @@ $color-darktext: #313131;
 
             button{
                 border-radius: 2px;
-                width: 100%px;
+                width: 100%;
                 margin-top: 9px;
                 padding: 10px;
-                float: none;
+                float: right;
                 font-weight: 600;
                 font-size: 15px;
                 letter-spacing: 0.1em;
                 border: $color-textdarkblue solid 1px;
                 background-color: rgba(255, 0, 0, 0);
                 font-family: 'Open Sans', sans-serif;
+                cursor: pointer;
             }
             
         }
@@ -467,6 +687,81 @@ $color-darktext: #313131;
     }
 
 
+    .produkt_info{
+        grid-area: produkt_info;
+        min-height: 1000px;
+        display: grid;
+        margin: 0px 0% 0px 0%;
+        background-color: $color-white;
+        grid-gap: 12px;
+        grid-template-columns: 1fr 1fr  ;
+        grid-template-rows: .2fr  1fr ;
+        grid-template-areas: 
+        " ingredienser ingredienser  "
+        "grid_bred_info grid_bred_info  ";
+
+        .grid_bred_info{
+            grid-area:grid_bred_info ;
+            
+
+            div{
+                
+                img{
+                    float: left;
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    padding: 0px 0px 0px 0px;
+                }
+
+                p{
+                    color: $color-textgrey;
+                    text-align: start;
+                }
+            }
+
+        }
+
+        .grid_bred_mereinfo{
+            grid-area:grid_bred_mereinfo ;
+            background-color: orange;
+        }
+
+        .grid_bred_instrukser{
+            grid-area:grid_bred_instrukser ;
+            background-color: orchid;
+        }
+
+        .grid_bred_ingredienser{
+            grid-area:ingredienser ;
+            
+
+
+            .ingrediens{
+
+                li{
+                    padding: 15px 0px 0px 0px;
+                    min-height: 50px;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    color: $color-textgrey;
+                    background-color: white;
+                    border: 1px solid $color-textgrey;
+                }
+            }
+
+            p{
+                font-size: 20px;
+                margin-bottom: 20px;
+                text-align: start;
+                font-weight: 800;
+             
+            }
+
+
+        }
+
+    }
 
 
 }

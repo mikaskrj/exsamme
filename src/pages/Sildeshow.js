@@ -36,7 +36,7 @@ const Sildeshow = () => {
             <div className="mySlides fade">
 
                 <img src={slide3} alt="" style={{ "width": "100%" }} />
-                <div className="text">Caption Text</div>
+                <div className="text">mere om brød</div>
             </div>
               
             <div className="dot_container" >

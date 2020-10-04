@@ -1,0 +1,123 @@
+.grid_kommentar {
+  min-height: 300px;
+  display: -ms-grid;
+  display: grid;
+  margin: 0% 20% 0% 20%;
+  grid-gap: 10px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 55px  .4fr;
+      grid-template-rows: 55px  .4fr;
+      grid-template-areas: " kommentar_head " "kommentar";
+}
+
+.grid_kommentar .kommentar_head {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: kommentar_head;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 18px 10px 20px 20px;
+  border: 1px solid #898989c2;
+  border-radius: 1px;
+  letter-spacing: 2px;
+}
+
+.grid_kommentar .kommentar_head .icon {
+  color: #898989c2;
+}
+
+.grid_kommentar .kommentar {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: kommentar;
+  color: #313131;
+}
+
+.grid_kommentar .kommentar .kommentar_box {
+  background-color: white;
+  border: 1px solid #898989c2;
+  margin-bottom: 10px;
+  padding: 10px 20px 10px 20px;
+  text-align: start;
+  color: #313131;
+}
+
+.grid_kommentar .kommentar .kommentar_box h3 {
+  font-size: 20px;
+  color: #313131;
+  letter-spacing: 2px;
+}
+
+.grid_kommentar .kommentar .kommentar_box .oprettet {
+  font-size: 11px;
+}
+
+.grid_kommentar .kommentar .kommentar_box p {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  .grid_kommentar {
+    min-height: 300px;
+    display: -ms-grid;
+    display: grid;
+    margin: 0% 5% 0% 5%;
+    grid-gap: 10px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 55px  .4fr;
+        grid-template-rows: 55px  .4fr;
+        grid-template-areas: " kommentar_head " "kommentar";
+  }
+  .grid_kommentar .kommentar_head {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: kommentar_head;
+    background-color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 18px 10px 20px 20px;
+    border: 1px solid #898989c2;
+    border-radius: 1px;
+    letter-spacing: 2px;
+  }
+  .grid_kommentar .kommentar_head .icon {
+    color: #898989c2;
+  }
+  .grid_kommentar .kommentar {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: kommentar;
+    color: #313131;
+  }
+  .grid_kommentar .kommentar .kommentar_box {
+    background-color: white;
+    border: 1px solid #898989c2;
+    margin-bottom: 10px;
+    padding: 10px 20px 10px 20px;
+    text-align: start;
+    color: #313131;
+  }
+  .grid_kommentar .kommentar .kommentar_box h3 {
+    font-size: 20px;
+    color: #313131;
+    letter-spacing: 2px;
+  }
+  .grid_kommentar .kommentar .kommentar_box .oprettet {
+    font-size: 11px;
+  }
+  .grid_kommentar .kommentar .kommentar_box p {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=kommentar.css.map */

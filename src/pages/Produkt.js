@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { FiHeart } from "react-icons/fi";
+import parse from 'html-react-parser'
+
+import { FiHeart, FiMessageCircle } from "react-icons/fi";
+import '../scss_stuff/kommentar.scss'
 
 import { hentProdukt, } from '../helpers/apikald'
 import { FiChevronRight } from "react-icons/fi";
@@ -7,24 +10,18 @@ import { FiChevronRight } from "react-icons/fi";
 
 const Produkt = (props) => {
 
+
     const [produkt, setProdukt] = useState()
-    const [ingrediens, setIngrediens] = useState([])
+
 
     useEffect(() => {
 
         hentProdukt(props.match.params.produktId).then(response => setProdukt(response))
 
-
     }, [])
 
-    useEffect(() => {
 
-        hentProdukt(props.match.params.produktId).then(response => setIngrediens(response))
-
-
-    }, [])
-
-    let produktinfo, head, head_info, ing, kun = "Loader..."
+    let produktinfo, head, head_info, ing, kun, tal = "Loader..."
     if (produkt) {
 
         produktinfo = (
@@ -49,7 +46,7 @@ const Produkt = (props) => {
 
             <div>
                 <img src={"http://localhost:5033/images/" + produkt.image} alt={produkt.titel} />
-                <p> {produkt.beskrivelse} </p>
+                <p> {parse(produkt.beskrivelse)} </p>
             </div>
 
 
@@ -59,8 +56,8 @@ const Produkt = (props) => {
         ing = (
 
             produkt.ingredienser.map(e => ((
-                <div>
-                    <p> {e.maengde} {e.ingrediens_titel} {e.enhed_forkortet} </p>
+                <div className="ingrediens" key={e._id}>
+                    <li>{e.maengde}{e.enhed_forkortet}.{e.ingrediens_titel} </li>
                 </div>
             ))
 
@@ -70,41 +67,28 @@ const Produkt = (props) => {
         kun = (
 
             produkt.kommentar.map(e => ((
-                <div>
-                    <p> {e.titel} </p>
+                <div className="kommentar_box" key={e._id}>
+
+                    <h3> {e.bruger.brugernavn} </h3>
+                    <p className="oprettet"> {e.oprettet} </p>
                     <p> {e.kommentaren} </p>
-                    <p> {e.bruger.brugernavn} </p>
+
                 </div>
             ))
 
             )
         )
 
-    }
+        tal = (
 
+            produkt.kommentar.map(k => ((
+                <p key={k._id}> {k.rolle} </p>
+            ))
 
-    let ingredienser = "Loader..."
-    if (ingrediens) {
-
-        ingredienser = (
-
-
-            <div>
-                <li> [ingrediens:ingredienser]</li>
-            </div>
-
-
+            )
         )
 
     }
-
-
-
-
-
-
-
-
 
 
     return (
@@ -117,24 +101,16 @@ const Produkt = (props) => {
                         {head}
                     </div>
                     <div className="button_container">
-                        <button>LIKE! <FiHeart /> </button>
+                        <button>LIKE! <p><FiHeart /> </p></button>
                     </div>
                 </section>
 
                 <section className="produkt_info">
                     <div className="grid_bred_info">
                         {head_info}
+                    </div>
 
 
-                        
-                    </div>
-                    <div className="grid_bred_mereinfo">
-                    <h2>hrll</h2>
-                    {kun}
-                    </div>
-                    <div className="grid_bred_instrukser">
-
-                    </div>
                     <div className="grid_bred_ingredienser">
                         <p>ingredienser</p>
                         {ing}
@@ -142,7 +118,24 @@ const Produkt = (props) => {
                 </section>
 
             </section>
+            <section className="grid_kommentar">
 
+                <div className="kommentar_head">
+
+                    <h4>kommentar</h4>
+                    <div className="icon">
+                        <FiMessageCircle />
+                        {tal}
+                    </div>
+
+                </div>
+                <div className="kommentar">
+                    {kun}
+
+                </div>
+
+
+            </section>
 
         </div>
     )

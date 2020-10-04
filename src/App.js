@@ -17,6 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        
         <NavBar />
         <Route exact path="/" component={Forside} />
         <Route exact path="/kontakt" component={Kontakt} />
